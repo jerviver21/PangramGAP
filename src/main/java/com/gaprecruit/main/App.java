@@ -1,4 +1,4 @@
-package com.gaprecruit.pangram;
+package com.gaprecruit.main;
 
 import com.gaprecruit.animation.solution.Animation;
 import com.gaprecruit.pangram.solution.MissingLetters;
@@ -25,15 +25,15 @@ public class App{
         
         Animation animation = new Animation();
         String[] data = animation.animate(2, "...R....");
-        logger.info("1: "+ml.getMissingLetters(""));
+        logger.info("1: "+data);
         data = animation.animate(3,"RR..LRL");
-        logger.info("2: "+ml.getMissingLetters(""));
+        logger.info("2: "+data);
         data = animation.animate(2,"LRLR.LRLR");
-        logger.info("3: "+ml.getMissingLetters(""));
+        logger.info("3: "+data);
         data = animation.animate(10,"RLRLRLRLRL");
-        logger.info("4: "+ml.getMissingLetters(""));
+        logger.info("4: "+data);
         data = animation.animate(1,"LRRL.LR.LRR.R.LRRL.");
-        logger.info("5: "+ml.getMissingLetters(""));
+        logger.info("5: "+data);
         
 
         logger.info("Finished");
