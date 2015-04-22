@@ -41,20 +41,27 @@ public class Animation {
         return result;
     }
     
-    
+    /**
+     * Start the animation, a loop represents each instant of time
+     * @param init
+     * @return 
+     */
     public List<String> startAnimation(String init){
         List<String> result=new ArrayList<String>();
         cleanArena(init);
         String emptyArena = getInstantPicture();
         
         String instantArena = "";
+        //Each iteration represents an instant of time
         while(!emptyArena.equals(instantArena)){
+            //Inside this loop lets paint the particles in the arena
             for(Particle p: particles){
                 if(p.getPosition() >= 0 && p.getPosition()<init.length()){
                     arena[p.getPosition()] = 'X';
                 }
                 p.changePos();
             }
+            //Picture of the arena in the present instant of time
             instantArena = getInstantPicture();
             result.add(instantArena);
             System.out.println(instantArena);
@@ -66,7 +73,10 @@ public class Animation {
         return result;
     }
     
-    
+    /**
+     * For each time, the arena paint its state in a String, letting empty positions with ., and occupied positions with X
+     * @return 
+     */
     public String getInstantPicture(){
         StringBuilder chain = new StringBuilder();
         for(char pos :arena){
@@ -99,7 +109,7 @@ public class Animation {
     }
     
     /**
-     * Clean the arena
+     * Clean the arena, set all the particles to .......
      */
     public void cleanArena(String init){
         arena = new char[init.length()];
